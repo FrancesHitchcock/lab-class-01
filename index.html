@@ -25,17 +25,14 @@
         width: 90%;
         margin: 0 auto;
       }
-      .header-container {
+      header {
         background-color: pink;
       }
-      .main-container {
+      main {
         background-color: beige;
       }
-      .footer-container {
+      footer {
         background-color: lightblue;
-      }
-      h1 {
-        color: blue;
       }
     </style>
   </head>
@@ -47,10 +44,10 @@
     </header>
     <main>
       <div class="container main-container">
-        <p>What is your first name?</p>
-        <p>What is your favourite colour?</p>
-        <p>What is your favourite number?</p>
-        <p>What is my favourite number?</p>
+        <p>What's your name?</p>
+        <p>Do you like maths?</p>
+        <p>What's your favourite number?</p>
+        <p>What's my favourite number?</p>
       </div>
     </main>
     <footer>
@@ -58,5 +55,65 @@
         <h4>Frances 12 June 2023</h4>
       </div>
     </footer>
+    <script>
+      let user = "";
+      let userLikesMaths = "";
+      let userFavNumber = 0;
+      let userGuess = 0;
+      let myFavNumber = 4;
+
+      function getUserName() {
+        user = prompt("Hi, I'm Frances, what's your name?");
+        alert("Hi there " + user + ", lovely to meet you!");
+      }
+
+      function getUserLikeMaths() {
+        userLikesMaths = prompt(
+          "Do you like Maths, " + user + "?"
+        ).toLowerCase();
+
+        if (userLikesMaths === "yes" || userLikesMaths === "y") {
+          alert("That's great, because I've got a challenge for you!");
+        } else {
+          alert("That's a shame, because I've got a challenge for you!");
+        }
+      }
+
+      function getUserFavNumber() {
+        userFavNumber = prompt("What's your favourite number?");
+      }
+
+      function getMyFavNumber() {
+        const result = userFavNumber * myFavNumber;
+        userGuess = prompt(
+          "Your favourite number multiplied by my favourite number is " +
+            result +
+            ". What is my favourite number?"
+        );
+        if (parseInt(userGuess) === myFavNumber) {
+          alert(
+            "That is correct " +
+              user +
+              ", my favourite number is " +
+              myFavNumber
+          );
+        } else {
+          alert(
+            "Woops, you're wrong " +
+              user +
+              ", my favourite number is " +
+              myFavNumber
+          );
+        }
+      }
+
+      getUserName();
+
+      getUserLikeMaths();
+
+      getUserFavNumber();
+
+      getMyFavNumber();
+    </script>
   </body>
 </html>
