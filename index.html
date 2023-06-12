@@ -31,6 +31,10 @@
       main {
         background-color: beige;
       }
+      p {
+        padding: 1em;
+        margin-top: 1em;
+      }
       footer {
         background-color: lightblue;
       }
@@ -44,10 +48,16 @@
     </header>
     <main>
       <div class="container main-container">
-        <p>What's your name?</p>
-        <p>Do you like maths?</p>
-        <p>What's your favourite number?</p>
-        <p>What's my favourite number?</p>
+        <p style="color: midnightblue; background-color: azure">
+          What's your name?
+        </p>
+        <p style="color: maroon; background-color: pink">Do you like maths?</p>
+        <p style="color: purple; background-color: floralwhite">
+          What's your favourite number?
+        </p>
+        <p style="color: forestgreen; background-color: aquamarine">
+          What's my favourite number?
+        </p>
       </div>
     </main>
     <footer>
@@ -65,6 +75,7 @@
       function getUserName() {
         user = prompt("Hi, I'm Frances, what's your name?");
         alert("Hi there " + user + ", lovely to meet you!");
+        console.log("user name:", user);
       }
 
       function getUserLikeMaths() {
@@ -77,10 +88,19 @@
         } else {
           alert("That's a shame, because I've got a challenge for you!");
         }
+
+        console.log("user likes maths:", userLikesMaths);
       }
 
       function getUserFavNumber() {
         userFavNumber = prompt("What's your favourite number?");
+        if (isNaN(userFavNumber)) {
+          userFavNumber = 2;
+          alert(
+            "You did not provide a number, so your favourite number has defaulted to 2!"
+          );
+        }
+        console.log("user favourite number:", userFavNumber);
       }
 
       function getMyFavNumber() {
@@ -90,21 +110,25 @@
             result +
             ". What is my favourite number?"
         );
+
         if (parseInt(userGuess) === myFavNumber) {
           alert(
             "That is correct " +
               user +
               ", my favourite number is " +
-              myFavNumber
+              myFavNumber +
+              ". See you next time!"
           );
         } else {
           alert(
             "Woops, you're wrong " +
               user +
               ", my favourite number is " +
-              myFavNumber
+              myFavNumber +
+              ". Now go away and practise some algebra!"
           );
         }
+        console.log("user guess:", userGuess);
       }
 
       getUserName();
